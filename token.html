@@ -17,7 +17,7 @@
   <div class="flourish" aria-hidden="true"></div>
 
   <header class="site-header">
-    <a href="index.html" class="title">Cybernetic Org Design</a>
+    <a href="index.html" class="title"><span class="title-orbit" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span></span>Cybernetic Org Design</a>
     <a href="token.html" class="nav-link">Token</a>
   </header>
 
@@ -28,7 +28,7 @@
 
     <div class="page-content">
       <h1>CyberOrg.eth</h1>
-      <p>The CyberOrg.eth token is a memecoin launched in conjunction with the Cybernetic Org Design book. Proceeds of book sales will discretionarily be routed back to token sales.</p>
+      <p>The <span class="ens-highlight">CyberOrg.eth</span> token is a memecoin launched in conjunction with the Cybernetic Org Design book. Proceeds of book sales will discretionarily be routed back to token sales.</p>
 
       <h2>Mint</h2>
       <div class="token-cta">
@@ -47,7 +47,10 @@
 
       <div class="token-address">
         <span class="label">Contract address (Base)</span>
-        0x620dd3e337d3a65add123b1079d448fe69cb974e
+        <span class="token-address-row">
+          <span class="token-address-value" id="contract-address">0x620dd3e337d3a65add123b1079d448fe69cb974e</span>
+          <button type="button" class="copy-btn" id="copy-contract" title="Copy contract address" aria-label="Copy contract address">📋</button>
+        </span>
       </div>
 
       <h2>Track &amp; trade</h2>
@@ -71,5 +74,24 @@
       <p>Cybernetic Org Design — Operating Playbooks for DAO-Native Firms</p>
     </footer>
   </main>
+  <script>
+    (function () {
+      var btn = document.getElementById('copy-contract');
+      var address = document.getElementById('contract-address');
+      if (!btn || !address) return;
+      btn.addEventListener('click', function () {
+        var text = address.textContent.trim();
+        navigator.clipboard.writeText(text).then(function () {
+          var orig = btn.textContent;
+          btn.textContent = '✓';
+          btn.setAttribute('aria-label', 'Copied!');
+          setTimeout(function () {
+            btn.textContent = orig;
+            btn.setAttribute('aria-label', 'Copy contract address');
+          }, 1500);
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
