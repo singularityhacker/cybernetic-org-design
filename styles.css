@@ -261,6 +261,16 @@ main { position: relative; z-index: 1; }
 }
 .btn-outline:hover { background: var(--accent-dim); border-color: var(--accent); }
 
+.btn-coming-soon {
+  cursor: default;
+  opacity: 0.7;
+}
+.btn-coming-soon:hover {
+  background: transparent;
+  border-color: var(--border);
+  filter: none;
+}
+
 /* Section common */
 section {
   padding: 4rem 1.5rem;
